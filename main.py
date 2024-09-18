@@ -5,7 +5,7 @@ from pygame.locals import *
 
 sprite_sheet = pygame.image.load("tile_sheet.png")
 pygame.init()
-game_display = pygame.display.set_mode((800, 800))
+GAME_DISPLAY = pygame.display.set_mode((800, 800))
 TILE_SIZE = 50
 cont_loop = True
 
@@ -126,7 +126,7 @@ quantum_grid = [[QuantumTile() for xx in range(GRID_SIZE)] for yy in range(GRID_
 def render_tiles():
     for x in range(GRID_SIZE):
         for y in range(GRID_SIZE):
-            game_display.blit(grid[x][y].image, (TILE_SIZE * x, TILE_SIZE * y))
+            GAME_DISPLAY.blit(grid[x][y].image, (TILE_SIZE * x, TILE_SIZE * y))
 
 
 def reset():
@@ -168,7 +168,7 @@ while True:
             if event.key == pygame.K_r:
                 reset()
 
-    game_display.fill((255, 255, 255))
+    GAME_DISPLAY.fill((255, 255, 255))
     render_tiles()
 
     pygame.time.wait(25)
